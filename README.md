@@ -11,3 +11,9 @@ SPC강의 내용
 \js\spc2025
 
 ## MergeTest
+
+https://capsule-render.vercel.app/api?color=auto
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=slice" />
+</div>
