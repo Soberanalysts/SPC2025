@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+            /*container 아래에 있는 item*/
+            .container .item {
+                float: left;
+                width: 100px;
+                border-right: 1px solid #ddd;
+            }
+            .container .last {
+                float: right;
+                border-right: none;
+                border: 10px dashed #3a26d0;
+                
+            }
+</style>
+<body>
+    <div class="container">
+        <div class="item">✅ 선택됨</div>
+        <div class="wrapper">
+          <div class="item">❌ 선택 안 됨</div>
+        </div>
+      </div>
+</body>
+</html>

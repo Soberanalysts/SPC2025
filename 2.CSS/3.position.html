@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            color: white;
+            margin: 5px;
+            /*display: inline-block;*/
+        }
+        .rel {
+            background-color: orangered;
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            color: white;
+            margin: 5px;
+            /*display: inline-block;*/
+        /*나중에 쓴게 오버라이드 된다*/
+        /*HTML,CSS, JS를 포함해서 이런 언어는 스크립트 언어*/
+        }
+        .container {
+            width : 300px;
+            height: 200px;
+            background-image: url(WirelessGuitar.png);
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div class="rel">2</div>
+    <!-- <div style="background-color: blue">3</div> -->
+    <div class="container">무선기타</div>
+</body>
+</html>
