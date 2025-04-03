@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+
+    <style>
+        /*기본 세팅*/
+        * {  
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {  
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .header { /*뒷배경 사진*/
+            position: relative;
+            width: 100%;
+            height: 800px;
+            background: url('back_img.jpg') center/contain no-repeat;
+        }
+        .header::before {/* 뒷배경 사진 흐리게 하는 장치 투명도 0.7 (opacity 사용 XXX) */
+            content: "";
+            position: absolute;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+        }
+        .nav { /*네비 상단바*/
+            position: relative;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        .netfl { /*넷플 로고*/
+            width: 150px;
+            height: 50px;
+            background: url('Netflix_Logo_PMS.png') center/contain no-repeat;
+        }
+        .nav-buttons { /*상단네비 버튼 크기 자리 조정*/
+            display: flex;
+            gap: 15px;
+        }
+        .mid {          /*중앙 시작하기부분*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+        }
+        .mid h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .mid p {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            
+        }
+        .email-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            
+        }
+        .email-input {
+            padding: 15px;
+            width: 300px;
+            font-size: 1rem;
+            background-color: #333; 
+            color: white; 
+            border: 1px solid #555; 
+            border-radius: 5px;
+        }
+        .email-input::placeholder {
+            color: #ccc; 
+        }
+        .red-button {
+            padding: 15px 20px;
+            font-size: 1rem;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            /* font-weight: bold; */
+            font-size: larger;
+        }
+        .red-button:hover {
+            background: rgb(170, 2, 2);
+        }
+        .dropdown {
+            padding: 8px;
+            font-size: 1rem;
+            background: rgba(250, 230, 230, 0.349);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dropdown:hover {
+            background: white;
+            color: black;
+        }
+        .more_plan {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1a1132;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 20px auto;
+        }
+        .more_plan img {
+            width: 50px; 
+            margin-right: 20px;
+        }
+
+        .more_plan .text-content {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .more_plan h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .more_plan p {
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .more_plan .btn {
+            background: #666;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+        .hot_issue {
+            text-align: left;
+            margin-left: 3%;
+            margin-right: 3%;
+            margin-top: 50px;
+        }
+        .hot_issue h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .flex-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding: 20px 0;
+        }
+        .box img {
+            width: 90%;
+            border-radius: 8px;
+        }
+        .box img:hover {
+        width: 100%;
+    }
+        .box .number {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: 001;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="nav">
+            <div class="netfl"></div>
+            <div class="nav-buttons">
+                <select class="dropdown">
+                    <option value="ko">한국어</option>
+                    <option value="en">English</option>
+                </select>
+                <button class="red-button">로그인</button>
+            </div>
+        </div>
+
+        <div class="mid">
+            <h1>영화, 시리즈 등을 무제한으로</h1>
+            <p>5,500원으로 시작하세요. 멤버십은 언제든지 해지 가능합니다.</p>
+            <p>시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를 입력하세요.</p>
+            
+            <div class="email-container">
+                <input type="email" class="email-input" placeholder="이메일 주소">
+                <button class="red-button">시작하기 ></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="more_plan">
+        <img src="pop.jpg" alt="팝콘">
+        <div class="text-content">
+            <h1>5,500원이면 만날 수 있는 넷플릭스.</h1>
+            <p>가장 경제적인 광고형 멤버십을 이용해 보세요.</p>
+        </div>
+        <button class="btn">자세히 알아보기</button>
+    </div>
+
+    <div class="hot_issue">
+        <h3>지금 뜨는 콘텐츠</h3>
+        <div class="flex-container">
+            <div class="box"><img src="1.webp" alt=""><div class="number">1</div></div>
+            <div class="box"><img src="2.webp" alt=""><div class="number">2</div></div>
+            <div class="box"><img src="3.webp" alt=""><div class="number">3</div></div>
+            <div class="box"><img src="4.webp" alt=""><div class="number">4</div></div>
+            <div class="box"><img src="5.webp" alt=""><div class="number">5</div></div>
+            <div class="box"><img src="6.webp" alt=""><div class="number">6</div></div>
+            <div class="box"><img src="7.webp" alt=""><div class="number">7</div></div>
+        </div>
+    </div>
+
+</body>
+</html>
