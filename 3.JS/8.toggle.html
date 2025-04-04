@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>색상변경(토글)</h1>
+    <p id="text">이 텍스트의 색상을 변경(토글)</p>
+    <button id="button" onclick="changeColor()">색상변경</button>
+    <script>
+        const colors = ["red", "blue", "green"];
+        let currentIndex = 0;
+        const p= document.getElementById("text")
+
+        
+        function changeColor() {
+            p.style.color = colors[currentIndex];
+            //p.style.color = colors[currentIndex];
+            console.log(currentIndex);
+            console.log(colors[currentIndex]);
+            currentIndex = currentIndex+1;
+            
+            
+            if(currentIndex === 3){
+                currentIndex=0;
+            }
+
+        }
+    </script>
+    
+</body>
+</html>

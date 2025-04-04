@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>버튼</h1>
+    <div id="result">0</div>
+    <div>
+        <button id="button1" onclick="increament()">증가(+1)</button>
+        <button id="button2" onclick="decreament()">감소(-1)</button>
+    </div>
+    <script>
+        function increament() {
+            console.log("증가버튼 클릭");
+            var result = document.getElementById("result");
+            result.innerText = Number(result.innerText)+1;  
+            }
+        function decreament() {
+            console.log("감소버튼 클릭");
+            var result = document.getElementById("result");
+            result.innerText = Number(result.innerText)-1;
+        }
+    </script>
+</body>
+</html>

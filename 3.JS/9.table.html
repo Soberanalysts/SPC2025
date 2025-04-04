@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="changeAll()">전체색상변경</button>
+    <button onclick="changeOdd()">홀수색상변경</button>
+    <button onclick="changeEven()">짝수색상변경</button>
+    
+    <table>
+        <tr>
+            <td id="1">셀1</td>
+            <td id="2">셀2</td>
+            <td id="3">셀3</td>
+        </tr>
+        <tr>
+            <td id="4">셀4</td>
+            <td id="5">셀5</td>
+            <td id="6">셀6</td>
+        </tr>
+        <tr>
+            <td id="7">셀7</td>
+            <td id="8">셀8</td>
+            <td id="9">셀9</td>
+        </tr>
+    </table>
+    <script>
+        const colors = ["red", "blue", "green"];
+        let currentIndex = 0;
+        changeAll = () => {
+            let cells = document.getElementsByTagName("td");
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].style.backgroundColor = colors[currentIndex];
+            }
+            //cells.reduce((i)=>cells[i].style.backgroundColor=colors[currentIndex]);
+
+            currentIndex = currentIndex+1;
+                        
+            if(currentIndex === 3){
+                currentIndex=0;
+            }
+        }
+        changeOdd = () => {
+            let cells = document.getElementsByTagName("td");
+            for (let i = 1; i < cells.length; i+=2) {
+                cells[i].style.backgroundColor = colors[currentIndex];
+            }
+            currentIndex = currentIndex+1;
+                        
+            if(currentIndex === 3){
+                currentIndex=0;
+            }
+        }
+        changeEven = () => {
+            let cells = document.getElementsByTagName("td");
+            for (let i = 0; i < cells.length; i+=2) {
+                cells[i].style.backgroundColor = colors[currentIndex];
+            }
+            currentIndex = currentIndex+1;
+                        
+            if(currentIndex === 3){
+                currentIndex=0;
+            }
+        }
+    </script>
+</body>
+</html>

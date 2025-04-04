@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick="changeColor()">배경색상변경(순환)</button>
+    <button onclick="changeRandomColor()">배경색상변경(랜덤)</button>
+    <script>
+        const colors = ["red", "blue", "green"];
+        let currentIndex = 0;
+
+        function changeColor() {
+            document.body.style.backgroundColor = colors[currentIndex];
+            console.log(currentIndex);
+            console.log(colors[currentIndex]);
+            currentIndex = currentIndex+1;
+            
+            
+            if(currentIndex === 3){
+                currentIndex=0;
+            }
+            /*if(currentIndex > 2){
+                currentIndex=0;
+            }*/
+        }/*
+        const btn = document.querySelector("button");
+        btn.onclick = function () {
+            currentIndex = currentIndex+1;
+            document.body.style.backgroundColor = colors[currentIndex];
+            console.log(currentIndex);
+            console.log(colors[currentIndex]);
+            if(currentIndex > 2){
+                currentIndex=0;
+            }
+          };*/
+        function random(number) {
+            return Math.floor(Math.random() * (number + 1));
+          }
+
+          function changeRandomColor() {
+            const rndCol ="rgb(" + random(255) + "," + random(255) + "," + random(255) + ")";
+            //const rndCol ="red";
+            console.log(rndCol);
+            document.body.style.backgroundColor = rndCol;
+          };
+
+        //1. 버튼 누를떄마다 색상 바뀌게
+        //2. 다시 순환되게하기
+        //3. 리스트말고 랜덤색상으로?
+    </script>
+</body>
+</html>
