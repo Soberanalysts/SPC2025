@@ -9,22 +9,29 @@
     <h1>숫자 맞추기 게임</h1>
     <h2>1~100까지의 숫자 맞추기...</h2>
     <input type="number" id="numberInput" placeholder="번호를 입력하시오" >
-    <button id="button" onclick="game()">입력</button>
+    <button id="button" onclick="game()">Guess</button>
+    <p id="result"></p>
 
     <script>
         let correct = Math.floor(Math.random() *100);
+        let count =0;
+        const result = document.getElementById("result");
         game = () => {
             const numInput = document.getElementById("numberInput").value;
+            count++;
             console.log(correct);
             console.log("numInput",numInput);
-    
+            console.log("시도횟수:", count);
+            
             if(numInput>correct) {
                 console.log("작게");
             } else if ( numInput<correct) {
                 console.log("크게");
             } else {
+                result.innerText = correct;
                 console.log("정답입니다.");
                 correct = Math.floor(Math.random() *100);
+                count=0;
             }
         }
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            align-items:center;
+            justify-content:center;
+            align-items: center;
+            min-height: 100vw;
+        }
+        input {
+            width : 450px;
+            height: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            align-items: center;
+        }
+        button {
+            align-items: center;
+            width : 450px;
+            height: 50px;
+        }
+        /* 클릭했을 때 밑에있는 div가 올라오도록... */
+        .login:hover {
+            height: 500px;
+            top: -300px;
+        }
+        .login:hover h1 {
+            font-size: 40px;
+            bottom: 30px;
+        }
+        .login:hover input {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sign up</h1>
+        <form method="post" id="login-form">
+            <input placeholder="User name"><br>
+            <input placeholder="Email"><br>
+            <input placeholder="Password"><br>
+            <button>Sign up</button>
+            <div class="login">
+                <h1>Login</h1>
+            </div>
+        </form>
+
+    </div>  
+    
+</body>
+</html>
