@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        
+        .wrapper {
+            display: flex;
+            justify-content: center; /* 가로 가운데 */
+            align-items: center;     /* 세로 가운데 */
+            height: 100vh;
+        }
+        
+        .calculator{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 10px;
+            max-width: 300px;
+            margin: 10 auto;
+            text-align: center;
+            justify-content:center;
+        }
+        .calculator input {
+            grid-column: span 4;
+        }
+        .calculator button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="calculator">
+            <input type="text" id="display">
+            <button onclick="clickNumber(event)">+</button>
+            <button onclick="clickNumber(event)">-</button>
+            <button onclick="clickNumber(event)">*</button>
+            <button onclick="clickNumber(event)">/</button>
+            <button onclick="clickNumber(event)">7</button>
+            <button onclick="clickNumber(event)">8</button>
+            <button onclick="clickNumber(event)">9</button>
+            <button onclick="clickNumber(event)">=</button>
+            <button onclick="clickNumber(event)">4</button>
+            <button onclick="clickNumber(event)">5</button>
+            <button onclick="clickNumber(event)">6</button>
+            <button onclick="clickReset()">C</button>
+            <button onclick="clickNumber(event)">1</button>
+            <button onclick="clickNumber(event)">2</button>
+            <button onclick="clickNumber(event)">3</button>
+            <button onclick="clickNumber(event)">0</button>
+        </div>
+    </div>
+    <script>
+        let number = document.getElementsByTagName("button");
+        let result = document.getElementById("display");
+        clickNumber = (e) => {
+            const value = e.target.textContent;
+            //result.innerText = value;
+            if(result.value !== '0')
+                result.value += value;
+            else
+                result.value = value;
+
+            console.log('버튼클릭',value);
+            console.log("result",result);
+        }
+        clickReset = () => {
+            result.value = 0;
+        }
+        clickCal = (e) => {
+            const cal = e.target.textContent;
+            const pre_result = result.value;
+            const after_result = result.value;
+            if(cal === '+') {
+
+            } else if (cal === '-') {
+
+            } else if (cal === '/') {
+
+            } else if (cal === '*') {
+
+            }
+
+        }
+    </script>
+</body>
+</html>

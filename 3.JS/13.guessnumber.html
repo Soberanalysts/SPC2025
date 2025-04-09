@@ -25,13 +25,16 @@
             
             if(numInput>correct) {
                 console.log("작게");
+                result.innerText = + numInput + "작게";
             } else if ( numInput<correct) {
                 console.log("크게");
+                result.innerText = + numInput + "크게";
             } else {
-                result.innerText = correct;
+                result.innerText = + correct;
                 console.log("정답입니다.");
                 correct = Math.floor(Math.random() *100);
                 count=0;
+
             }
         }
 

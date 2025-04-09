@@ -35,14 +35,14 @@
             mix-blend-mode: multiply;
             
           }
-          .triangle:hover{
+         /* .triangle:hover{
             animation-name: movemargin;
             animation-duration: 2s;
             animation-timing-function:linear;
             animation-delay: 0.5s;
             animation-iteration-count: 1;
             animation-direction: alternate;
-          }
+          }*/
           @keyframes movemargin{
             0% { left: 0; }
             100% { left: 200px; }
@@ -53,6 +53,18 @@
             left: 0;
             background-color: #6a69b5;
             clip-path: polygon(0 0, 100% 100%, 0 100%);
+            animation-name: movelf;
+            animation-duration: 2s;
+            animation-timing-function:linear;
+            animation-delay: 0.5s;
+            animation-iteration-count: 1;
+            animation-direction: alternate;
+          }
+          @keyframes movelf{
+            0% { right: 0; }
+            100% { right: 400px; 
+              up : 400px ;
+            }
           }
           .top-right {
             top: 0;
