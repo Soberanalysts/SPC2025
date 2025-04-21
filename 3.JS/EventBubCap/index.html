@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">
+          <button id="btn">클릭</button>
+        </div>
+      </div>
+      <script>
+        document.getElementById("outer").addEventListener("click", () => {
+            console.log("⬆️ outer 클릭");
+          }, true);
+          
+          document.getElementById("inner").addEventListener("click", () => {
+            console.log("⬆️ inner 클릭");
+          }, true);
+          
+          document.getElementById("btn").addEventListener("click", () => {
+            console.log("⬆️ btn 클릭");
+          }, true);          
+          
+      </script>
+</body>
+</html>
