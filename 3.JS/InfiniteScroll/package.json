@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "prettier": "3.5.3"
+  },
+  "dependencies": {
+    "create-react-app": "^5.1.0",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  }
+}
