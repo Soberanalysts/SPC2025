@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 50%;
+        }
+        th, td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: center;
+        }
+        button {
+          padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>제품 목록</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Product 1</td>
+            <td>2000</td>
+            <td><button onclick="put(1, 'Product 1', 2000)">담기</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Product 2</td>
+            <td>3000</td>
+            <td><button onclick="put(2, 'Product 2', 3000)">담기</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Product 3</td>
+            <td>1500</td>
+            <td><button onclick="put(3, 'Product 3', 1500)">담기</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <script>
+        function put(id, name, price) {
+            fetch('/api/user')
+            .then(res => res.json())
+            .then(data => {
+              if (data.username) {
+                fetch('/api/user/cart', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, name, price })
+                  })
+                  .then(res => res.json())
+                  .then(data => {
+                    alert(`${name} 장바구니에 담김!`);
+                  });
+              } else {
+                alert(`로그인 해주세요`);
+              }
+            });
+           
+          }
+      </script>
+</body>
+</html>

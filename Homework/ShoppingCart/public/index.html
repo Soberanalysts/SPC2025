@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/Product" method="get">
+        <button type="submit">Product</button>
+    </form>
+    <form action="/Cart" method="get">
+        <button type="submit">Cart</button>
+    </form>
+    <h1>Welcome to the Home Page</h1>    
+    <h3>This is the home page content</h3>    
+    <!-- <form action="/login" method="post">
+        <input name="username" type="text" placeholder="username" /><br>
+        <input name="password" type="password" placeholder="password" /><br>
+        <button type="submit">Login</button>
+    </form> -->
+    <h3 id="status">로그인 해주세요</h3>
+    <div id="loginForm">
+        <form action="/login" method="post">
+          <input name="username" type="text" placeholder="username" /><br>
+          <input name="password" type="password" placeholder="password" /><br>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    
+      <div id="logoutForm" style="display:none;">
+        <form action="/logout" method="post">
+          <button type="submit">Logout</button>
+        </form>
+      </div>
+    
+      <script>
+        // 로그인 상태 확인
+        fetch('/api/user')
+          .then(res => res.json())
+          .then(data => {
+            if (data.username) {
+              document.getElementById('status').innerText = `${data.username} 로그인 상태입니다`;
+              document.getElementById('loginForm').style.display = 'none';
+              document.getElementById('logoutForm').style.display = 'block';
+            }
+          });
+      </script>
+</body>
+</html>

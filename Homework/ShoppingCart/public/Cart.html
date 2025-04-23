@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 50%;
+        }
+        th, td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: center;
+        }
+        button {
+          padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>장바구니</h1>
+
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="cart-body">
+          <tr>
+            <td>1</td>
+            <td>Product 1</td>
+            <td>7
+                <button>+</button>
+                <button>-</button>
+            </td>
+            <td><button>Remove</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Product 2</td>
+            <td>1
+                <button>+</button>
+                <button>-</button>
+            </td>
+            <td><button>Remove</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Product 3</td>
+            <td>3
+                <button>+</button>
+                <button>-</button>
+            </td>
+            <td><button>Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <script>
+        window.onload = function () {
+            fetch('/api/user', { credentials: 'same-origin' })
+              .then(res => res.json())
+              .then(data => {
+                if (!data.username) {
+                  alert('로그인 해주세요');
+                  window.location.href = '/'                  // 선택사항: 로그인 페이지로 리다이렉트
+                  // window.location.href = '/';
+                } else {
+                    fetch('/api/user/cart', {
+                        method: 'GET',
+                        headers: { 'Content-Type': 'application/json' },
+                      })
+                      .then(res => res.json())
+                      .then(data => {
+                        console.log('세션데이터:',data);
+                        const tbody=document.getElementById("cart-body");
+                        tbody.innerHTML = ''; // 초기화
+                        data.forEach((item, index) => {
+                            const row = document.createElement('tr');
+                            
+                            row.innerHTML = `
+                              <td>${index + 1}</td>
+                              <td>${item.name}</td>
+                              <td>
+                                ${item.quantity}
+                                <button onclick="increase(${index})">+</button>
+                                <button onclick="decrease(${index})">-</button>
+                              </td>
+                              <td><button onclick="removeItem(${index})">Remove</button></td>
+                            `;
+                            tbody.appendChild(row);
+                          });
+                      });
+                }
+              });
+          };
+
+      </script>
+</body>
+</html>
