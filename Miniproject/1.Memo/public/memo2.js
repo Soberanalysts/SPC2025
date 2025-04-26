@@ -13,17 +13,7 @@ uploadPost = () => {
     }
     // const colClass = cardCount <= 3 ? "col-md-4" : "col-6"; // 3개까지는 3열, 그 이상은 2열
     console.log(postList.className);
-    postList.innerHTML +=`
-        <div class="col">
-            <div class="card w-100">
-                <div class="card-body">
-                    <a class="card-title" id="card-title">${input}</a>
-                    <p class="card-text" id="card-text">${textarea}</p>
-                    <button type="button" onclick="updatePost(this)" class="btn btn-info">수정</button>
-                    <button type="button" onclick="deletePost(this)" class="btn btn-warning">삭제</button>
-                </div>
-            </div>
-        </div>`;
+ 
     // 🔹 1. 요소 만들기
     // const col = document.createElement('div');
     // col.className = 'col';

@@ -45,6 +45,8 @@
     width: 900px;
 }
 .card {
+    /* width: 200px;
+    height: 300px; */
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     --ind-font-family: 'IndPretendard';
@@ -89,7 +91,8 @@
     padding-right: 15px;
     padding-left: 15px;
     flex: 0 0 33.333333%;
-} 
+    max-width: 33.333333%;
+}
 
 .card-body {
     -webkit-text-size-adjust: 100%;
