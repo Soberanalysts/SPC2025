@@ -35,7 +35,6 @@ app.get('/', (req, res) => {
 })
 app.post('/logout', (req,res) => {
     req.session.destroy();
-    // res.send('안녕히가세요....');
     res.redirect('/');
 });
 
@@ -57,9 +56,7 @@ app.post('/login', (req,res) => {
         console.error("DB 에러:", err);
         return res.status(500).send("서버 오류");
       }
-  
       if (row) {
-        // res.send(`✅ 로그인 성공! 환영합니다, ${row.username}`);
         req.session.username = row.username;
         console.log('세션데이터',req.session);
         res.redirect('/');
