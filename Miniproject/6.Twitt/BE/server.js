@@ -171,8 +171,7 @@ app.post("/post", (req, res) => {
           console.error("DB 오류:", err.message);
           return res.status(500).json({ message: "DB 삽입 실패" });
       }
-      console.log("사용자 등록됨, ID:", this.lastID);
-      res.status(201).json({ message: "등록 성공", userId: this.lastID });
+      res.redirect("/") 
       }
   );
 });

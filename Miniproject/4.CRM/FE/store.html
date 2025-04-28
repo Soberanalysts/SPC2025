@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container h-100">
+        <div class="justify-content-center w-100" >
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark main-nav">
+                <div class="container justify-content-center">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users">User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/orders">Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/order_items">Order Item</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/items">Item</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/stores">Store</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    
+        <div class="col-md-12 col-sm-12 mx-auto">
+            <div class="h-100 justify-content-center">
+                
+        <div class="cell-container" style="overflow: auto; max-height: 80vh">
+        <form id="storeForm">
+            <div class="input text">
+                <label for="name">Store:</label> 
+                <input id="store" name="store" type="text" value="" data-listener-added_ca08858d="true">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        <div class="table-responsive">
+            <!-- 마우스 오버 호버 개선 table-hover, table-light -->
+            <table class="table table-hover" id="users">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">type</th>
+                        <th scope="col">address</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- <nav aria-label="Page navigation"> -->
+    <ul id="pagination" class="pagination" style="
+        display: flex; 
+        justify-content: center; 
+        list-style-type: none; 
+        padding: 0; 
+        text-align: center; 
+        width: 100%;
+    "></ul>
+<!-- </nav> -->
+        </div>
+    </div>
+    <script src="store.js" type="module">
+    </script>
+</body>
+</html>

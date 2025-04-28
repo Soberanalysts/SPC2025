@@ -6,8 +6,9 @@ async function fetchPosts() {
 
     const data = await response.json();
     const tbody = document.getElementById("tbody");
+    console.log(data);
 
-    data.shift();
+    // data.shift();
     allPosts = data;
     renderPosts();   // 처음 게시글도 같이 표시
     renderPagination();
@@ -34,14 +35,26 @@ function renderPosts() {
     for (const post of currentPosts) {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-        <td>${post.field1}</td>
-        <td>${post.field2}</td>
-        <td>${post.field3}</td>
-        <td>${post.field4}</td>
-        <td>${post.field5}</td>
+        <td>${post.Id}</td>
+        <td>${post.Name}</td>
+        <td>${post.Gender}</td>
+        <td>${post.Age}</td>
+        <td>${post.Birthdate}</td>
+        <td>${post.Address}</td>
         `;
         tbody.appendChild(tr);
     }
+    // for (const post of currentPosts) {
+    //     const tr = document.createElement("tr");
+    //     tr.innerHTML = `
+    //     <td>${post.field1}</td>
+    //     <td>${post.field2}</td>
+    //     <td>${post.field3}</td>
+    //     <td>${post.field4}</td>
+    //     <td>${post.field5}</td>
+    //     `;
+    //     tbody.appendChild(tr);
+    // }
 }
 
 //////////////////////페이징////////////////////////

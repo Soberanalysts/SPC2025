@@ -32,6 +32,13 @@ app.use(session({
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../FE/index.html'));
 })
+app.get('/users', (req, res) => {
+    res.sendFile(path.join(__dirname, '../FE/index.html'));
+})
+app.get('/stores', (req, res) => {
+    res.sendFile(path.join(__dirname, '../FE/store.html'));
+})
+
 app.get('/user', (req,res) => {
     db.all("SELECT * FROM users", (err, rows) => {
         if (err) {
@@ -43,16 +50,42 @@ app.get('/user', (req,res) => {
         res.json(rows); // 게시글 리스트 반환
         });    
 })
+app.get('/api/store', (req,res) => {
+    db.all("SELECT * FROM stores", (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: true, message: "DB 오류", detail: err.message });
+        }
+        if (!rows || rows.length === 0) {
+            return res.status(404).json({ error: true, message: "게시글이 없습니다." });
+        }
+        res.json(rows); // 게시글 리스트 반환
+        });    
+})
+
 app.get('/search', (req,res) => {
     const {name, gender} = req.query;
     console.log(name);
     console.log(gender);
-    db.all("SELECT * FROM users WHERE field2 = ? AND field3 = ?",[name, gender], (err, rows) => {
+    db.all("SELECT * FROM users WHERE Name = ? AND Gender = ?",[name, gender], (err, rows) => {
         if (err) {
             return res.status(500).json({ error: true, message: "DB 오류", detail: err.message });
             }
         if (!rows || rows.length === 0) {
             return res.status(404).json({ error: true, message: "게시글이 없습니다." });
+        }
+            res.json(rows); // 게시글 리스트 반환
+        });
+})
+
+app.get('/searchstore', (req,res) => {
+    const { store: storeName } = req.query;
+    console.log(storeName);
+    db.all("SELECT * FROM stores WHERE Name Like ?",[`%${storeName}%`], (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: true, message: "DB 오류", detail: err.message });
+            }
+        if (!rows || rows.length === 0) {
+            return res.status(404).json({ error: true, message: "상점이 없습니다." });
         }
             res.json(rows); // 게시글 리스트 반환
         });
