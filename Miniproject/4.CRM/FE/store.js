@@ -3,7 +3,6 @@ let allPosts = [];  // 전체 게시글 저장하는 곳
 ///////////////////////게시글 조회///////////////////////////////
 async function fetchPosts() {
     const response = await fetch("http://localhost:3000/api/store");
-
     const data = await response.json();
 
     allPosts = data;
@@ -12,6 +11,7 @@ async function fetchPosts() {
     renderPagination();
 
 }
+
 function renderPosts() {
     const tbody = document.getElementById("tbody");
     tbody.innerHTML = ''; // 기존 내용 비우기
@@ -30,27 +30,26 @@ function renderPosts() {
         `;
         tbody.appendChild(tr);
     }
-
 }
 
 //////////////////////페이징////////////////////////
 
-const postsPerPage = 20;
-let currentPage = 1;
+    const postsPerPage = 20;
+    let currentPage = 1;
 
-// 페이지 이동 함수
-function paginate(pageNumber) {
-    if (pageNumber < 1 || pageNumber > Math.ceil(allPosts.length / postsPerPage)) return;
-    currentPage = pageNumber;
-    renderPosts();       
-    renderPagination();  
-  }
-  
+    // 페이지 이동 함수
+    function paginate(pageNumber) {
+        if (pageNumber < 1 || pageNumber > Math.ceil(allPosts.length / postsPerPage)) return;
+        currentPage = pageNumber;
+        renderPosts();       
+        renderPagination();  
+    }
+
   // 페이지네이션 그리기
-  function renderPagination() {
+    function renderPagination() {
     const paginationContainer = document.getElementById('pagination');
     paginationContainer.innerHTML = '';
-  
+        
     const totalPages = Math.ceil(allPosts.length / postsPerPage);
     const startPage = Math.max(1, currentPage - Math.floor(5 / 2));
     const endPage = Math.min(totalPages, startPage + 4);
@@ -92,6 +91,8 @@ function paginate(pageNumber) {
 
 
 fetchPosts();
+
+///////////////////////////////////검색/////////////////////////////////////////
 
 document.getElementById('storeForm').addEventListener('submit', async function(e) {
     e.preventDefault();
