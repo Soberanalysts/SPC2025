@@ -15,7 +15,10 @@ chat_prompt2= ChatPromptTemplate.from_messages(
     input_variables = ['company_name'],
     template="이 회사를 잘 소개할 수 있는 슬로건(또는 catch-phrase)를 만들어줘. 회사명 :{company_name}"
 )
-
+chat_prompt3= ChatPromptTemplate.from_messages(
+    input_variables = ['company_name'],
+    template="이 회사를 잘 소개할 수 있는 슬로건(또는 catch-phrase)를 만들어줘. 회사명 :{company_name}"
+)
 llm = OpenAI(model="gpt-3.5-turbo", temperature=0.5)
 
 chain1 = chat_prompt1 | llm | RunnableLambda(lambda x: {"response": x.content})
